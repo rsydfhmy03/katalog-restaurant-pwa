@@ -1,0 +1,142 @@
+$color_1: black;
+$background-color_1: #fff;
+
+// Atur Navbar untuk Desktop (> 500px)
+@media screen and (min-width: 500px) {
+  .menumob {
+    display: none;
+  }
+
+  .navmob {
+    display: none;
+  }
+
+  .nav {
+    display: flex;
+  }
+}
+
+// Atur Navbar untuk Mobile (< 500px)
+@media screen and (max-width: 499px) {
+  .nav {
+    display: none;
+  }
+
+  .menumob {
+    display: flex;
+  }
+
+  .navmob {
+    display: flex;
+  }
+}
+
+// Responsivitas untuk Komponen Lain
+@media screen and (min-width: 650px) {
+  .list_item_content {
+    padding: 16px 32px 32px 32px;
+  }
+
+  .list_item_title {
+    font-size: 18px;
+  }
+
+  .list_item_desc {
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 16px;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  main {
+    max-width: 1200px;
+  }
+}
+
+// Mobile-First Styling
+.slider {
+  .list {
+    .item {
+      .content {
+        // position: absolute;
+        left: 0;
+        top: 20%;
+        width: 95%;
+        max-width: none;
+        padding: 0 10px;
+        text-align: left;
+      }
+    }
+  }
+
+  .arrows {
+    display: none;
+  }
+
+  .thumbnail {
+    bottom: 5px;
+    .item {
+      margin-top: 5px;
+    }
+  }
+}
+
+// Responsivitas untuk Tablet (500px - 899px)
+@media screen and (min-width: 500px) and (max-width: 899px) {
+  .slider {
+    .list {
+      .item {
+        .content {
+          width: 80%;
+          left: 10%;
+        }
+      }
+    }
+    .arrows {
+      // display: flex;
+      // gap: 10%;
+      display: none;
+    }
+  }
+}
+
+// Responsivitas untuk Desktop (> 900px)
+@media screen and (min-width: 900px) {
+  .slider {
+    .list {
+      .item {
+        .content {
+          // position: absolute;
+          left: 15%;
+          top: 30%;
+          width: 500px;
+          max-width: 80%;
+        }
+      }
+    }
+    .arrows {
+      display: flex;
+      gap: 10%;
+    }
+    .thumbnail {
+      position: absolute;
+      bottom: 50px;
+      margin-top: -20px;
+    }
+  }
+}

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="MitahuResto is your go-to app for exploring traditional, fresh, and signature restaurant experiences."
+    />
+    <meta
+      name="keywords"
+      content="restaurant, food, MitahuResto, local, farm-to-table, dining"
+    />
+
+    <title>MitahuResto App</title>
+    <link rel="stylesheet" href="../styles/main.scss" />
+    <link rel="stylesheet" href="../styles/responsive.scss" />
+  </head>
+  <body>
+    <a href="#content" class="skip-link">Skip to content?</a>
+    <nav id="drawer" class="navmob"></nav>
+    <div class="menumob">
+      <button class="menu-button-wrapper">
+        <input type="checkbox" class="menu-button" id="menu-toggle" />
+        <div class="icon-wrapper">
+          <label class="hamburger" aria-label="Toggle Navigation Menu">
+            <span class="hamburger-line first"></span>
+            <span class="hamburger-line second"></span>
+            <span class="hamburger-line third"></span>
+          </label>
+        </div>
+        <!-- Dropdown Menu -->
+        <div class="item-list">
+          <div><a href="/">Home</a></div>
+          <div><a href="#">Favorite</a></div>
+          <div>
+            <a href="https://www.linkedin.com/in/mitahudev03/" target="_blank"
+              >About Us</a
+            >
+          </div>
+        </div>
+      </button>
+      <div class="logomob">MitahuResto Apps</div>
+    </div>
+    <!-- Desktop Navbar -->
+    <nav class="nav">
+      <a class="logo" href="">MitahuResto Apps</a>
+      <ul class="navlist">
+        <li class="navitems"><a href="/">Home</a></li>
+        <li class="navitems"><a href="#">Favorite</a></li>
+        <li class="navitems">
+          <a target="_blank" href="https://www.linkedin.com/in/mitahudev03/"
+            >About Us</a
+          >
+        </li>
+      </ul>
+    </nav>
+    <div class="slider">
+      <div class="list">
+        <div class="item active">
+          <img src="images/heros/hero-image_1.jpg" alt="Taste of Tradition" />
+          <div class="content">
+            <p>Taste of Tradition</p>
+            <h2>Explore the Taste of Tradition</h2>
+          </div>
+        </div>
+        <div class="item">
+          <img src="images/heros/hero-image_2.jpg" alt="Fresh & Local" />
+          <div class="content">
+            <p>Fresh & Local</p>
+            <h2>Farm-to-Table Delights</h2>
+          </div>
+        </div>
+        <div class="item">
+          <img src="images/heros/hero-image_3.jpg" alt="Signature Dishes" />
+          <div class="content">
+            <p>Signature Dishes</p>
+            <h2>A Feast for Your Senses</h2>
+          </div>
+        </div>
+        <div class="item">
+          <img src="images/heros/hero-image_4.jpg" alt="Warm Atmosphere" />
+          <div class="content">
+            <p>Warm Atmosphere</p>
+            <h2>Dine in Comfort</h2>
+          </div>
+        </div>
+        <div class="item">
+          <img src="images/heros/hero-image_5.jpg" alt="Exceptional Service" />
+          <div class="content">
+            <p>Exceptional Service</p>
+            <h2>Hospitality Redefined</h2>
+          </div>
+        </div>
+      </div>
+      <!-- button arrows -->
+      <div class="arrows">
+        <button id="prev">&lt;</button>
+        <button id="next">&gt;</button>
+      </div>
+      <!-- thumbnail -->
+      <div class="thumbnail">
+        <div class="item active">
+          <img src="images/heros/hero-image_1.jpg" alt="Taste of Tradition" />
+          <div class="content">Taste of Tradition</div>
+        </div>
+        <div class="item">
+          <img src="images/heros/hero-image_2.jpg" alt="Fresh & Local" />
+          <div class="content">Fresh & Local</div>
+        </div>
+        <div class="item">
+          <img src="images/heros/hero-image_3.jpg" alt="Signature Dishes" />
+          <div class="content">Signature Dishes</div>
+        </div>
+        <div class="item">
+          <img src="images/heros/hero-image_4.jpg" alt="Warm Atmosphere" />
+          <div class="content">Warm Atmosphere</div>
+        </div>
+        <div class="item">
+          <img src="images/heros/hero-image_5.jpg" alt="Exceptional Service" />
+          <div class="content">Exceptional Service</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <main id="content">
+      <section class="content">
+        <div class="latest">
+          <h1>Explore Restaurant</h1>
+          <div class="list" id="list-restaurant"></div>
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer>
+      <p>
+        &copy; <span>Fahmy Rosyadi MitahuResto Apps 2024.</span> All rights
+        reserved.
+      </p>
+    </footer>
+    <script src="../scripts/main.js"></script>
+  </body>
+</html>
