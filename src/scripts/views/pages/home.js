@@ -7,20 +7,19 @@ import {
 const Home = {
   async render() {
     return `
-        <div>
-          <div class="main">
-            <h2 tabindex="0" class="explore-restaurant__label">Explore Restaurant</h2>
-            <section id="explore-restaurant-list">
-            ${createSkeletonRestaurantTemplate(20)}
+            <section class="content">
+                <div class="latest">
+                    <h1>Explore Restaurant</h1>
+                    <div class="list" id="explore-restaurant-list">${createSkeletonRestaurantTemplate(
+                      20
+                    )}</div>
+                </div>
             </section>
-          </div>
-        </div>
-    `;
+        `;
   },
 
   async afterRender() {
     const listRestaurant = await RestaurantSource.getRestaurants();
-    console.log({ listRestaurant });
     const restaurantContainer = document.getElementById(
       "explore-restaurant-list"
     );
