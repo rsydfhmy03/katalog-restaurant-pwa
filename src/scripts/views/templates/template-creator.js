@@ -87,7 +87,7 @@ const createRestaurantDetailTemplate = (restaurant) => `
     <i title="ratings" class="fas fa-star icon-primary"></i>
     <p class="detail-name-address-rating">${restaurant.rating}</p>
   </li>
-  <h4> Description: </h4>
+
   <li><p class="detail-desc">${restaurant.description}</p></li>
 
   <li class="resto-category">${restaurant.categories
@@ -104,7 +104,7 @@ const createRestaurantDetailTemplate = (restaurant) => `
 
 <div tabindex="0" class="detail-menu">
   <div class="detail-food">
-    <h4>Food</h4>
+    <h4>Katalog Makanan</h4>
     <ul>
       ${restaurant.menus.foods
         .map(

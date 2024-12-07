@@ -2,7 +2,7 @@ import RestaurantSource from "../../data/restaurant-source";
 import {
   createRestaurantItemTemplate,
   createSkeletonRestaurantTemplate,
-} from "../templates/template-creator";
+} from "../templates/templates-creators";
 
 const Home = {
   async render() {

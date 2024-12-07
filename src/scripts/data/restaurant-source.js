@@ -1,29 +1,20 @@
 import API_ENDPOINT from "../globals/api-endpoint";
+import BaseService from "../globals/baseService";
 
-class RestaurantSource {
+class RestaurantService {
   static async getRestaurants() {
-    const response = await fetch(API_ENDPOINT.LIST);
-    const data = await response.json();
+    const data = await BaseService.get(API_ENDPOINT.LIST);
     return data.restaurants;
   }
 
   static async detailRestaurant(id) {
-    const response = await fetch(API_ENDPOINT.DETAIL(id));
-    const data = await response.json();
+    const data = await BaseService.get(API_ENDPOINT.DETAIL(id));
     return data.restaurant;
   }
 
-  static async postReview(data) {
-    const options = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    };
-    const response = await fetch(API_ENDPOINT.POST_REVIEW, options);
-    return response.json();
+  static async postReview(reviewData) {
+    return BaseService.post(API_ENDPOINT.POST_REVIEW, reviewData);
   }
 }
 
-export default RestaurantSource;
+export default RestaurantService;

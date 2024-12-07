@@ -72,10 +72,10 @@ class App {
       }
     };
 
-    let autoRunInterval = setInterval(handleNext, 5000);
+    let autoRunInterval = setInterval(handleNext, 70000);
     const resetAutoRun = () => {
       clearInterval(autoRunInterval);
-      autoRunInterval = setInterval(handleNext, 5000);
+      autoRunInterval = setInterval(handleNext, 70000);
     };
 
     thumbnails.forEach((thumbnail, index) => {
@@ -94,46 +94,6 @@ class App {
     this._content.innerHTML = await page.render();
     await page.afterRender();
   }
-
-  //   Ini old
-  //   async _fetchRestaurantData() {
-  //     document.addEventListener("DOMContentLoaded", async () => {
-  //       try {
-  //         const { default: jsonData } = await import(
-  //           "../../public/data/DATA.json"
-  //         );
-  //         const restaurants = jsonData.restaurants;
-  //         const restaurantList = restaurants
-  //           .map(
-  //             (restaurant) => `
-  //             <div class="list_item card">
-  //               <img class="list_item_thumb" src="${restaurant.pictureId}" alt="${
-  //               restaurant.name
-  //             }" />
-  //               <div class="city">${restaurant.city}</div>
-  //               <div class="list_item_content">
-  //                 <p class="list_item_rating">Rating:
-  //                   <a href="#" class="list_item_rating_value">${
-  //                     restaurant.rating
-  //                   }</a>
-  //                 </p>
-  //                 <h1 class="list_item_title">${restaurant.name}</h1>
-  //                 <p class="list_item_desc">${restaurant.description.slice(
-  //                   0,
-  //                   150
-  //                 )}...</p>
-  //               </div>
-  //             </div>`
-  //           )
-  //           .join("");
-
-  //         document.querySelector("#list-restaurant").innerHTML = restaurantList;
-  //         document.querySelector(".loader").style.display = "none";
-  //       } catch (error) {
-  //         console.error("Error fetching data:", error);
-  //       }
-  //     });
-  //   }
 }
 
 export default App;

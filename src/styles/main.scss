@@ -27,14 +27,14 @@ $menu-item-bg: #303242;
   margin: 0;
   box-sizing: border-box;
   font-family: $font-family_1;
-  // outline: 1px solid red;
+  outline: 1px solid rgb(43, 255, 0);
 }
 body {
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100%;
-  font-size: 12px;
+  font-size: 14px;
   color: $color_1;
 }
 html {
@@ -500,4 +500,555 @@ footer {
   &:focus {
     top: 100px;
   }
+}
+
+// .main-content__container {
+//   width: 100%;
+//   margin: 60px auto;
+//   padding: 0 3%;
+//   text-align: center;
+// }
+// .detail-content {
+//   padding-left: 20%;
+//   padding-right: 20%;
+// }
+// .alamat {
+//   margin-bottom: 30px;
+//   font-weight: 500;
+// }
+// .city-detail {
+//   border-radius: 5px;
+//   background-color: #135ea8;
+//   padding: 5px 10px 5px;
+//   color: white;
+//   font-weight: 500;
+// }
+// .tag {
+//   background-color: #135ea8;
+//   padding: 5px 5px 5px;
+//   color: white;
+//   font-weight: 400;
+//   display: inline;
+// }
+
+/* styles/detail.scss */
+
+/* Container untuk detail restoran */
+// .detail {
+//   padding: 20px;
+//   max-width: 1200px;
+//   margin: 0 auto;
+// }
+
+// /* Gambar restoran */
+// .img-container {
+//   width: 100%;
+//   max-height: 400px;
+//   overflow: hidden;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// }
+
+// .detail-img {
+//   width: 100%;
+//   object-fit: cover;
+//   height: 300px;
+//   border-radius: 10px;
+// }
+
+// /* Info restoran */
+// .detail-info {
+//   list-style: none;
+//   margin: 20px 0;
+//   padding: 0;
+//   display: grid;
+//   grid-template-columns: 1fr 1fr;
+//   gap: 15px;
+
+//   li {
+//     display: flex;
+//     align-items: center;
+//     gap: 10px;
+//     font-size: 1rem;
+//   }
+
+//   .icon-primary {
+//     font-size: 1.5rem;
+//     color: #ff6f61; /* Warna ikon utama */
+//   }
+
+//   .detail-name-address-rating {
+//     font-weight: bold;
+//   }
+// }
+
+// /* Deskripsi restoran */
+// .detail-desc {
+//   margin-top: 10px;
+//   font-size: 1rem;
+//   line-height: 1.5;
+// }
+
+// /* Menu makanan dan minuman */
+// .detail-menu {
+//   margin-top: 40px;
+//   display: flex;
+//   flex-direction: column;
+//   gap: 30px;
+// }
+
+// .detail-food,
+// .detail-drink {
+//   h4 {
+//     font-size: 1.3rem;
+//     margin-bottom: 10px;
+//     font-weight: bold;
+//   }
+
+//   ul {
+//     list-style: none;
+//     padding: 0;
+
+//     li {
+//       padding: 5px 0;
+//       font-size: 1rem;
+//     }
+//   }
+// }
+
+// /* Review section */
+// .title-review {
+//   margin-top: 40px;
+//   font-size: 1.5rem;
+//   font-weight: bold;
+// }
+
+// .detail-review-item {
+//   border-bottom: 1px solid #ddd;
+//   margin-bottom: 20px;
+//   padding-bottom: 10px;
+// }
+
+// .header-review {
+//   display: flex;
+//   justify-content: space-between;
+//   font-size: 1rem;
+//   margin-bottom: 5px;
+// }
+
+// .name-review {
+//   font-weight: bold;
+//   display: flex;
+//   align-items: center;
+// }
+
+// .date-review {
+//   font-size: 0.9rem;
+//   color: #888;
+// }
+
+// .body-review {
+//   font-size: 1rem;
+//   line-height: 1.5;
+//   margin-top: 10px;
+// }
+
+// /* Styling button Like */
+// .like {
+//   background-color: transparent;
+//   border: none;
+//   cursor: pointer;
+//   font-size: 1.5rem;
+//   color: #ff6f61;
+// }
+
+/* Form Review */
+// .form-review {
+//   margin-top: 40px;
+//   margin-bottom: 25px;
+//   padding: 20px;
+//   border: 1px solid #ddd;
+//   border-radius: 10px;
+
+//   input[type="text"] {
+//     width: 100%;
+//     padding: 10px;
+//     margin: 10px 0;
+//     border-radius: 5px;
+//     border: 1px solid #ccc;
+//   }
+
+//   button {
+//     background-color: #ff6f61;
+//     color: white;
+//     padding: 10px 20px;
+//     border: none;
+//     border-radius: 5px;
+//     cursor: pointer;
+//   }
+// }
+
+/* styles/detail.scss */
+
+/* Container untuk detail restoran */
+.detail {
+  display: grid;
+  outline: #23f2f5 solid 1px;
+  grid-gap: 10px;
+  padding: 20px;
+  max-width: 1200px;
+  // margin: 0 auto;
+  .h3 {
+    outline: rgb(174, 255, 0) solid 1px;
+    font-size: 10em;
+  }
+}
+.detail-info {
+  display: grid;
+  outline: #001665 solid 3px;
+  padding: 10px;
+  // display: flex;
+  justify-content: space-evenly;
+}
+
+.explore-restaurant__label {
+  display: flex;
+  font-size: 2.5em;
+  justify-content: center;
+  margin-top: 20px;
+  height: min-content;
+  color: $color_1;
+}
+
+/* Gambar restoran */
+.img-container {
+  outline: red solid 1px;
+  width: 100%;
+  max-height: 400px;
+  object-position: center;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.detail-img {
+  width: 100%;
+  object-fit: cover;
+  height: 300px;
+  border-radius: 10px;
+  object-position: center;
+}
+
+.detail-name-address-rating {
+  display: inline-block;
+  margin: 0;
+}
+
+.icon-primary {
+  color: $color_2;
+}
+/* Info restoran */
+.container-info {
+  list-style: none;
+  margin: 20px 0;
+  padding: 0;
+  // display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+
+  .resto-name,
+  .resto-address,
+  .resto-rating {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    color: #333;
+  }
+
+  .icon-primary {
+    font-size: 1.5rem;
+    color: #ff6f61;
+  }
+
+  .detail-name-address-rating {
+    font-weight: bold;
+  }
+}
+
+/* Deskripsi restoran */
+.detail-desc {
+  margin-top: 20px;
+  font-size: 1rem;
+  line-height: 1.5;
+  font-size: 1.3em;
+  justify-content: space-evenly;
+}
+
+.detail-food {
+  // outline: red solid 1px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  align-content: center;
+}
+
+.detail-food ul,
+.detail-drink ul {
+  color: var(--secondary-color);
+  padding-left: 0;
+}
+
+.detail-food li {
+  padding: 0.5em 0;
+  display: block;
+  text-decoration: none;
+  background-color: var(--primary-color);
+  border: 0.5px solid var(--secondary-color);
+  border-width: 0 0 0.5px;
+  font-size: 1.37em;
+}
+
+.detail-drink {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-content: center;
+}
+
+.detail-drink li {
+  padding: 0.5em 0;
+  display: block;
+  text-decoration: none;
+  background-color: var(--primary-color);
+  border: 0.5px solid var(--secondary-color);
+  border-width: 0 0 0.5px;
+  font-size: 1.37em;
+}
+
+.detail-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.detail-info h4 {
+  color: var(--secondary-color);
+  font-size: 1.5em;
+  margin: 0;
+  text-align: left;
+  padding-left: 0.5em;
+}
+
+.detail-info li {
+  position: relative;
+  display: block;
+  padding: 0.6em;
+
+  color: $color_6;
+  text-decoration: none;
+  background-color: var(--primary-color);
+  .detail-desc {
+    font-size: 1.3em;
+    font-style: italic;
+  }
+}
+/* Menu makanan dan minuman */
+.detail-menu {
+  margin-top: 40px;
+  font-style: italic;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.detail-food,
+.detail-drink {
+  h4 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      padding: 5px 0;
+      font-size: 1rem;
+    }
+  }
+}
+
+.category {
+  padding: 0.3em 1em;
+  color: $color_2;
+  background-color: $background-color_1;
+  margin-right: 2px;
+  border: 1px solid transparent;
+  border-radius: 0px 10px 0px 10px;
+  text-align: left;
+}
+.category {
+  &:hover {
+    box-shadow: 0px 10px 13px -7px #001665, 5px 5px 15px 5px #23f2f5;
+  }
+}
+
+.detail h3 {
+  outline: #23f2f5 solid 1px;
+  font-size: 1.5em;
+  display: flex;
+  justify-content: center;
+  padding: 1em 0;
+  background-color: $background-color_1;
+  font-weight: bold;
+  color: $color_2;
+  // margin: 0;
+  border-radius: 0.5em;
+}
+.detail-food {
+  // outline: #001665 solid 1px;
+  li {
+    // outline: orange solid 1px;
+    color: #001665;
+    padding: 1em 0;
+    font-size: 2.5em;
+    text-decoration: none;
+    border: 0.5px solid $color_4;
+    &:hover {
+      box-shadow: 0px 10px 13px -7px #001665, 5px 5px 15px 5px #23f2f5;
+    }
+  }
+}
+.detail-drink {
+  li {
+    &:hover {
+      box-shadow: 0px 10px 13px -7px #001665, 5px 5px 15px 5px #001665;
+    }
+  }
+}
+.detail-review-item {
+  &:hover {
+    box-shadow: 0px 10px 13px -7px #001665, 5px 5px 15px 5px #001665;
+  }
+}
+
+.detail-review-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Review section */
+.title-review {
+  margin-top: 40px;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.detail-review-item {
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 20px;
+  font-size: 1em;
+  padding-bottom: 10px;
+}
+
+.header-review {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.name-review {
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.date-review {
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.body-review {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-top: 10px;
+}
+
+/* Styling button Like */
+.like {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #ff6f61;
+}
+
+/* Form Review */
+.form-review {
+  margin-top: 40px;
+  margin-bottom: 25px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+
+  input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+
+  button {
+    background-color: #ff6f61;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+}
+
+/* Skeleton Loader */
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  padding: 20px;
+}
+
+.card-img-container {
+  width: 100%;
+  height: 250px;
+  background-color: #ddd;
+}
+
+.card-content {
+  padding: 10px;
+}
+
+.skeleton {
+  background-color: #f0f0f0;
+  height: 15px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.skeleton-card {
+  background-color: #ddd;
+  height: 20px;
+  width: 80%;
+  margin-bottom: 10px;
 }
