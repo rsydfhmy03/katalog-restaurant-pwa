@@ -2,10 +2,11 @@
   "name": "MitahuDev Resto",
   "short_name": "MDev Resto",
   "description": "web apps restaurant PWA by mitahudev",
-  "start_url": "/index.html",
+  "start_url": "./",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#D84315",
+  "orientation": "portrait",
   "icons": [
     {
       "src": "/icons/icon-72x72.png",

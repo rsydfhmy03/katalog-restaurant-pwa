@@ -9,7 +9,7 @@ const createRestaurantItemTemplate = (restaurant) => `
     <div class="list_item_content">
       <p class="list_item_rating">
         Rating : 
-        <a href="#" class="list_item_rating_value">${restaurant.rating}</a>
+        <p href="#" class="list_item_rating_value">${restaurant.rating}</p>
       </p>
       <h1 class="list_item_title">
         <a href="/#/detail/${restaurant.id}">${restaurant.name}</a>

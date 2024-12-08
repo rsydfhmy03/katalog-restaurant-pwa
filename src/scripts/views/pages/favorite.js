@@ -4,12 +4,14 @@ import { createRestaurantItemTemplate } from '../templates/templates-creators';
 const Favorite = {
   async render() {
     return `
-    <div>
-    <h2 tabindex="0" class="explore-restaurant__label">Favorite</h2>
-    <h2 class="restaurant-item__not__found"></h2>
-    <section id="explore-restaurant-list"></section>
-    </div>
-    `;
+    <section class="content">
+        <div class="latest">
+            <h2 tabindex="0" class="explore-restaurant__label">Favorite</h2>
+            <h2 class="restaurant-item__not__found"></h2>
+            <section id="explore-restaurant-list"></section>
+        </div>
+    </section>
+`;
   },
 
   async afterRender() {

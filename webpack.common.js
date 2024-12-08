@@ -32,11 +32,7 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        use: [
-          {
-            loader: 'file-loader',
-          },
-        ],
+        type: 'asset/resource',
       },
     ],
   },
@@ -62,7 +58,7 @@ module.exports = {
             url.href.startsWith('https://restaurant-api.dicoding.dev/list'),
           handler: 'StaleWhileRevalidate',
           options: {
-            cacheName: new Date().toISOString(),
+            cacheName: 'resto',
           },
         },
         {
@@ -72,24 +68,12 @@ module.exports = {
             ),
           handler: 'StaleWhileRevalidate',
           options: {
-            cacheName: new Date().toISOString(),
+            cacheName: 'resto',
           },
         },
       ],
+      ignoreURLParametersMatching: [/^utm_/, /^fbclid$/],
     }),
-    // new ServiceWorkerWebpackPlugin({
-    //   entry: path.resolve(__dirname, 'src/scripts/sw.js'),
-    // }),
-    // new ImageminWebpWebpackPlugin({
-    //   config: [
-    //     {
-    //       test: /\.(jpe?g|png)/,
-    //       options: {
-    //         quality: 50,
-    //       },
-    //     },
-    //   ],
-    //   overrideExtension: true,
-    // }),
+
   ],
 };

@@ -8,22 +8,29 @@ import FavoriteRestaurantIdb from '../../data/favoriterestaurant-db';
 const Detail = {
   async render() {
     return `
-    <div class="main">
-      <h2 tabindex="0" class="explore-restaurant__label">Detail Restaurant</h2>
+      <div class="main">
+        <h2 tabindex="0" class="explore-restaurant__label">Detail Restaurant</h2>
         <section id="detail-rest"></section>
         <div class="like" id="likeButtonContainer"></div>
-        <div class="form-review">
-          <form>
-            <div class="mb-3">
-              <label for="inputName" class="form-label">Name</label>
-              <input name="inputName" type="text" class="form-control" id="inputName">
-            </div>
-            <div class="mb-3">
-              <label for="inputReview" class="form-label">Review</label>
-              <input name="inputReview" type="text" class="form-control" id="inputReview">
-            </div>
-            <button id="submit-review" type="submit" class="btn">Submit</button>
-          </form>
+        <div class="form-reviews-container">
+          <div class="form-review">
+            <form>
+              <div class="form-group">
+                <label for="inputName" class="form-label">Name</label>
+                <input name="inputName" type="text" class="form-control" id="inputName" placeholder="Enter your name" />
+              </div>
+              <div class="form-group">
+                <label for="inputReview" class="form-label">Review</label>
+                <textarea
+                  name="inputReview"
+                  id="inputReview"
+                  class="form-control"
+                  placeholder="Write your review here"
+                ></textarea>
+              </div>
+              <button id="submit-review" type="submit" class="btn-submit">Submit</button>
+            </form>
+          </div>
         </div>
       </div>
     `;
@@ -31,36 +38,59 @@ const Detail = {
 
   async afterRender() {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
-    const restaurant = await RestaurantSource.detailRestaurant(url.id);
-    const restaurantContainer = document.getElementById('detail-rest');
-    restaurantContainer.innerHTML = createRestaurantDetailTemplate(restaurant);
+    try {
+      // Fetch data restoran
+      const restaurant = await RestaurantSource.detailRestaurant(url.id);
+      // Pastikan elemen #detail-rest ada
+      const restaurantContainer = document.getElementById('detail-rest');
+      if (restaurantContainer) {
+        restaurantContainer.innerHTML = createRestaurantDetailTemplate(restaurant);
+      } else {
+        console.error('Element #detail-rest tidak ditemukan.');
+      }
 
-    // favorite
-    LikeButtonPresenter.init({
-      likeButtonContainer: document.getElementById('likeButtonContainer'),
-      favoriteRestaurants: FavoriteRestaurantIdb,
-      restaurant: {
-        id: restaurant.id,
-        name: restaurant.name,
-        city: restaurant.city,
-        pictureId: restaurant.pictureId,
-        description: restaurant.description,
-        rating: restaurant.rating,
-      },
-    });
+      // Initialize Like Button
+      LikeButtonPresenter.init({
+        likeButtonContainer: document.getElementById('likeButtonContainer'),
+        favoriteRestaurants: FavoriteRestaurantIdb,
+        restaurant: {
+          id: restaurant.id,
+          name: restaurant.name,
+          city: restaurant.city,
+          pictureId: restaurant.pictureId,
+          description: restaurant.description,
+          rating: restaurant.rating,
+        },
+      });
 
-    // post review
-    const submitReview = document.getElementById('submit-review');
-    submitReview.addEventListener('click', (event) => {
-      event.preventDefault();
-      PostReview();
-    });
+      // Event listener untuk submit review
+      const submitReview = document.getElementById('submit-review');
+      submitReview.addEventListener('click', async (event) => {
+        event.preventDefault();
+        // Panggil fungsi PostReview
+        await PostReview();
 
-    const skipLinkElem = document.querySelector('.skip-link');
-    skipLinkElem.addEventListener('click', (event) => {
-      event.preventDefault();
-      document.querySelector('#main-content').focus();
-    });
+        // Fetch ulang data restoran untuk mendapatkan review terbaru
+        const updatedRestaurant = await RestaurantSource.detailRestaurant(url.id);
+
+        // Pastikan elemen #detail-rest ada
+        const updatedContainer = document.getElementById('detail-rest');
+        if (updatedContainer) {
+          updatedContainer.innerHTML = createRestaurantDetailTemplate(updatedRestaurant);
+        } else {
+          console.error('Element #detail-rest tidak ditemukan setelah submit review.');
+        }
+      });
+
+      // Event listener untuk skip link
+      const skipLinkElem = document.querySelector('.skip-link');
+      skipLinkElem.addEventListener('click', (event) => {
+        event.preventDefault();
+        document.querySelector('#main-content').focus();
+      });
+    } catch (error) {
+      console.error('Error fetching restaurant data:', error);
+    }
   },
 };
 
