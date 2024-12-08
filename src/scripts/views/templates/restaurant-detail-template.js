@@ -106,7 +106,7 @@ const createMenuTemplate = (menus) => `
       </ul>
     </div>
     <div class="detail-drink">
-      <h4>Drink</h4>
+      <h4>Katalog Minuman</h4>
       <ul>
         ${
   menus?.drinks

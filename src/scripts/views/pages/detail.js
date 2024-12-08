@@ -17,7 +17,7 @@ const Detail = {
             <form>
               <div class="form-group">
                 <label for="inputName" class="form-label">Name</label>
-                <input name="inputName" type="text" class="form-control" id="inputName" placeholder="Enter your name" />
+                <input name="inputName" type="text" class="form-control" id="inputName" placeholder="Enter your name" required />
               </div>
               <div class="form-group">
                 <label for="inputReview" class="form-label">Review</label>
@@ -26,6 +26,7 @@ const Detail = {
                   id="inputReview"
                   class="form-control"
                   placeholder="Write your review here"
+                  required
                 ></textarea>
               </div>
               <button id="submit-review" type="submit" class="btn-submit">Submit</button>

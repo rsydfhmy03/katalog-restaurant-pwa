@@ -6,6 +6,10 @@ import swRegister from './utils/sw-register';
 import 'lazysizes';
 import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 
+import './components/HeaderCustom';
+import './components/SliderCustom';
+import './components/FooterCustom';
+
 const app = new App({
   button: document.querySelector('.menu-button-wrapper'),
   drawer: document.querySelector('.item-list'),
