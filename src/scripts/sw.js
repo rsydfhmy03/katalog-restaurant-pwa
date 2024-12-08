@@ -1,5 +1,5 @@
 import 'regenerator-runtime';
-import CacheHelper from './utils/cache-helper';
+import CacheHelper from './utils/chace-helper';
 
 // Caching the listed asset below
 const assetsToCache = [
@@ -17,6 +17,8 @@ const assetsToCache = [
   './app.bundle.js',
   './app.webmanifest',
   './sw.bundle.js',
+  './styles/main.css',
+  './styles/responsive.css',
 ];
 
 self.addEventListener('install', (event) => {
