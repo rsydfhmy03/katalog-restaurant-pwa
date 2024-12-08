@@ -1,10 +1,10 @@
-import CONFIG from "../../globals/config";
+import CONFIG from '../../globals/config';
 
 const createRestaurantItemTemplate = (restaurant) => `
   <div class="list_item">
     <img class="list_item_thumb" loading="lazy" src="${
-      CONFIG.BASE_IMAGE_SMALL_URL + restaurant.pictureId
-    }" alt="${restaurant.name}" title="${restaurant.name}">
+  CONFIG.BASE_IMAGE_SMALL_URL + restaurant.pictureId
+}" alt="${restaurant.name}" title="${restaurant.name}">
     <div class="city">${restaurant.city}</div>
     <div class="list_item_content">
       <p class="list_item_rating">

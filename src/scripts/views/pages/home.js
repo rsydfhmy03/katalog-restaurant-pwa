@@ -1,8 +1,8 @@
-import RestaurantSource from "../../data/restaurant-source";
+import RestaurantSource from '../../data/restaurant-source';
 import {
   createRestaurantItemTemplate,
   createSkeletonRestaurantTemplate,
-} from "../templates/templates-creators";
+} from '../templates/templates-creators';
 
 const Home = {
   async render() {
@@ -11,8 +11,8 @@ const Home = {
                 <div class="latest">
                     <h1>Explore Restaurant</h1>
                     <div class="list" id="explore-restaurant-list">${createSkeletonRestaurantTemplate(
-                      20
-                    )}</div>
+    20
+  )}</div>
                 </div>
             </section>
         `;
@@ -21,9 +21,9 @@ const Home = {
   async afterRender() {
     const listRestaurant = await RestaurantSource.getRestaurants();
     const restaurantContainer = document.getElementById(
-      "explore-restaurant-list"
+      'explore-restaurant-list'
     );
-    restaurantContainer.innerHTML = "";
+    restaurantContainer.innerHTML = '';
     listRestaurant.forEach((restaurant) => {
       restaurantContainer.innerHTML += createRestaurantItemTemplate(restaurant);
     });

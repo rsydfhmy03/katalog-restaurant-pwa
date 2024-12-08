@@ -1,7 +1,7 @@
 import {
   createLikeRestaurantButtonTemplate,
   createUnlikeRestaurantButtonTemplate,
-} from "../views/templates/template-creator";
+} from '../views/templates/template-creator';
 
 const LikeButtonPresenter = {
   async init({ likeButtonContainer, favoriteRestaurants, restaurant }) {
@@ -29,8 +29,8 @@ const LikeButtonPresenter = {
   _renderLikeButton() {
     this._likeButtonContainer.innerHTML = createLikeRestaurantButtonTemplate();
 
-    const likeButton = document.getElementById("likeButton");
-    likeButton.addEventListener("click", async () => {
+    const likeButton = document.getElementById('likeButton');
+    likeButton.addEventListener('click', async () => {
       await this._favoriteRestaurants.putRestaurant(this._restaurant);
       this._renderButton();
     });
@@ -40,8 +40,8 @@ const LikeButtonPresenter = {
     this._likeButtonContainer.innerHTML =
       createUnlikeRestaurantButtonTemplate();
 
-    const likedButton = document.getElementById("likeButton");
-    likedButton.addEventListener("click", async () => {
+    const likedButton = document.getElementById('likeButton');
+    likedButton.addEventListener('click', async () => {
       await this._favoriteRestaurants.deleteRestaurant(this._restaurant.id);
       this._renderButton();
     });

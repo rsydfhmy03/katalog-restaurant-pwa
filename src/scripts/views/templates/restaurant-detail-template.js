@@ -1,69 +1,69 @@
-import CONFIG from "../../globals/config";
+import CONFIG from '../../globals/config';
 
 const createSourceTag = (srcSet, type, media) =>
   `<source class="detail-img lazyload" srcset="${srcSet}" type="${type}" media="${media}" />`;
 
 const createPictureTemplate = (pictureId, name) => {
   const mediaQueries = {
-    smallMobile: "(max-width: 300px)",
-    mobile: "(max-width: 480px)",
-    tablet: "(min-width: 481px) and (max-width: 900px)",
-    desktop: "(min-width: 901px)",
+    smallMobile: '(max-width: 300px)',
+    mobile: '(max-width: 480px)',
+    tablet: '(min-width: 481px) and (max-width: 900px)',
+    desktop: '(min-width: 901px)',
   };
 
   const sources = [
     {
       srcSet: CONFIG.BASE_IMAGE_SMALL_URL + pictureId,
-      type: "image/webp",
+      type: 'image/webp',
       media: mediaQueries.smallMobile,
     },
     {
       srcSet: CONFIG.BASE_IMAGE_SMALL_URL + pictureId,
-      type: "image/jpeg",
+      type: 'image/jpeg',
       media: mediaQueries.smallMobile,
     },
     {
       srcSet: CONFIG.BASE_IMAGE_SMALL_URL + pictureId,
-      type: "image/webp",
+      type: 'image/webp',
       media: mediaQueries.mobile,
     },
     {
       srcSet: CONFIG.BASE_IMAGE_SMALL_URL + pictureId,
-      type: "image/jpeg",
+      type: 'image/jpeg',
       media: mediaQueries.mobile,
     },
     {
       srcSet: CONFIG.BASE_IMAGE_MEDIUM_URL + pictureId,
-      type: "image/webp",
+      type: 'image/webp',
       media: mediaQueries.tablet,
     },
     {
       srcSet: CONFIG.BASE_IMAGE_MEDIUM_URL + pictureId,
-      type: "image/jpeg",
+      type: 'image/jpeg',
       media: mediaQueries.tablet,
     },
     {
       srcSet: CONFIG.BASE_IMAGE_LARGE_URL + pictureId,
-      type: "image/webp",
+      type: 'image/webp',
       media: mediaQueries.desktop,
     },
     {
       srcSet: CONFIG.BASE_IMAGE_LARGE_URL + pictureId,
-      type: "image/jpeg",
+      type: 'image/jpeg',
       media: mediaQueries.desktop,
     },
   ];
 
   const pictureSources = sources
     .map((source) => createSourceTag(source.srcSet, source.type, source.media))
-    .join("\n");
+    .join('\n');
 
   return `
       <picture>
         ${pictureSources}
         <img class="detail-img lazyload" data-src="${
-          CONFIG.BASE_IMAGE_SMALL_URL + pictureId
-        }" alt="${name}" />
+  CONFIG.BASE_IMAGE_SMALL_URL + pictureId
+}" alt="${name}" />
       </picture>
     `;
 };
@@ -87,8 +87,8 @@ const createDetailInfoTemplate = (restaurant) => `
     <li><p class="detail-desc">${restaurant.description}</p></li>
     <li class="resto-category">
       ${restaurant.categories
-        .map((category) => `<span class="category">${category.name}</span>`)
-        .join("")}
+    .map((category) => `<span class="category">${category.name}</span>`)
+    .join('')}
     </li>
   </ul>
 `;
@@ -99,20 +99,20 @@ const createMenuTemplate = (menus) => `
       <h4>Katalog Makanan</h4>
       <ul>
         ${
-          menus?.foods
-            ?.map((food) => `<li><p>${food.name}</p></li>`)
-            .join("") || "<li>Tidak ada makanan</li>"
-        }
+  menus?.foods
+    ?.map((food) => `<li><p>${food.name}</p></li>`)
+    .join('') || '<li>Tidak ada makanan</li>'
+}
       </ul>
     </div>
     <div class="detail-drink">
       <h4>Drink</h4>
       <ul>
         ${
-          menus?.drinks
-            ?.map((drink) => `<li><p>${drink.name}</p></li>`)
-            .join("") || "<li>Tidak ada minuman</li>"
-        }
+  menus?.drinks
+    ?.map((drink) => `<li><p>${drink.name}</p></li>`)
+    .join('') || '<li>Tidak ada minuman</li>'
+}
       </ul>
     </div>
   </div>
@@ -121,9 +121,9 @@ const createMenuTemplate = (menus) => `
 const createReviewsTemplate = (customerReviews) => `
   <div class="detail-review">
     ${
-      customerReviews
-        ?.map(
-          (review) => `
+  customerReviews
+    ?.map(
+      (review) => `
         <div class="detail-review-item">
           <div class="header-review">
             <p class="name-review">
@@ -134,9 +134,9 @@ const createReviewsTemplate = (customerReviews) => `
           <div class="body-review">${review.review}</div>
         </div>
       `
-        )
-        .join("") || "<p>Belum ada ulasan</p>"
-    }
+    )
+    .join('') || '<p>Belum ada ulasan</p>'
+}
   </div>
 `;
 

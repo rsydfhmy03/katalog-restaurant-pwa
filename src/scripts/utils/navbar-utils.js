@@ -8,9 +8,9 @@ const addStickyClass = (selector, className) => {
 };
 
 const initStickyNavbar = () => {
-  window.addEventListener("scroll", () => {
-    addStickyClass(".nav", "sticky");
-    addStickyClass(".navmob", "sticky");
+  window.addEventListener('scroll', () => {
+    addStickyClass('.nav', 'sticky');
+    addStickyClass('.navmob', 'sticky');
   });
 };
 

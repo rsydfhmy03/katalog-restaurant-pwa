@@ -1,14 +1,14 @@
-/* eslint-disable consistent-return */
+
 /* eslint-disable no-prototype-builtins */
-import { openDB } from "idb";
-import CONFIG from "../globals/config";
+import { openDB } from 'idb';
+import CONFIG from '../globals/config';
 
 const { DATABASE_NAME, DATABASE_VERSION, OBJECT_STORE_NAME } = CONFIG;
 
 const dbPromise = openDB(DATABASE_NAME, DATABASE_VERSION, {
   upgrade(database) {
     database.createObjectStore(OBJECT_STORE_NAME, {
-      keyPath: "id",
+      keyPath: 'id',
     });
   },
 });
@@ -27,7 +27,7 @@ const FavoriteRestaurantIdb = {
   },
 
   async putRestaurant(restaurant) {
-    if (!restaurant.hasOwnProperty("id")) {
+    if (!restaurant.hasOwnProperty('id')) {
       return;
     }
 

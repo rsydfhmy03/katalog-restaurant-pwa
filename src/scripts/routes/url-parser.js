@@ -11,7 +11,7 @@ const UrlParser = {
     const [, resource, id, verb] = window.location.hash
       .slice(1)
       .toLowerCase()
-      .split("/");
+      .split('/');
     return {
       resource: resource || null,
       id: id || null,
@@ -21,9 +21,9 @@ const UrlParser = {
 
   _urlCombiner({ resource, id, verb }) {
     return (
-      (resource ? `/${resource}` : "/") +
-      (id ? "/:id" : "") +
-      (verb ? `/${verb}` : "")
+      (resource ? `/${resource}` : '/') +
+      (id ? '/:id' : '') +
+      (verb ? `/${verb}` : '')
     );
   },
 };

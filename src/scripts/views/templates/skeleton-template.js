@@ -1,5 +1,5 @@
 const createSkeletonRestaurantTemplate = (count) => {
-  let skeleton = "";
+  let skeleton = '';
 
   for (let i = 0; i < count; i += 1) {
     skeleton += `

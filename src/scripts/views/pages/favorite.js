@@ -1,5 +1,5 @@
-import FavoriteRestaurantIdb from "../../data/favoriterestaurant-db";
-import { createRestaurantItemTemplate } from "../templates/templates-creators";
+import FavoriteRestaurantIdb from '../../data/favoriterestaurant-db';
+import { createRestaurantItemTemplate } from '../templates/templates-creators';
 
 const Favorite = {
   async render() {
@@ -15,9 +15,9 @@ const Favorite = {
   async afterRender() {
     const restaurants = await FavoriteRestaurantIdb.getAllRestaurant();
     const restaurantContainer = document.getElementById(
-      "explore-restaurant-list"
+      'explore-restaurant-list'
     );
-    const empty = document.querySelector(".restaurant-item__not__found");
+    const empty = document.querySelector('.restaurant-item__not__found');
     if (restaurants.length === 0) {
       empty.innerHTML = `
       <h2>Tidak ada favorite restaurant yang ditampilkan</h2>
@@ -28,10 +28,10 @@ const Favorite = {
       restaurantContainer.innerHTML += createRestaurantItemTemplate(restaurant);
     });
 
-    const skipLinkElem = document.querySelector(".skip-link");
-    skipLinkElem.addEventListener("click", (event) => {
+    const skipLinkElem = document.querySelector('.skip-link');
+    skipLinkElem.addEventListener('click', (event) => {
       event.preventDefault();
-      document.querySelector("#main-content").focus();
+      document.querySelector('#main-content').focus();
     });
   },
 };

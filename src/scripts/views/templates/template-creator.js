@@ -1,29 +1,29 @@
-import CONFIG from "../../globals/config";
+import CONFIG from '../../globals/config';
 
 const createRestaurantItemTemplate = (restaurant) => `<div class="list_item">
                 <!-- Load Gambar Lazy Loading -->
                 <img class="list_item_thumb" loading="lazy" src="${
-                  CONFIG.BASE_IMAGE_SMALL_URL + restaurant.pictureId
-                }" alt="${restaurant.name}" title="${restaurant.name}">
+  CONFIG.BASE_IMAGE_SMALL_URL + restaurant.pictureId
+}" alt="${restaurant.name}" title="${restaurant.name}">
                 <div class="city">${restaurant.city}</div>
                 <div class="list_item_content">
                     <p class="list_item_rating">
                         Rating : 
                         <a href="#" class="list_item_rating_value">${
-                          restaurant.rating
-                        }</a>
+  restaurant.rating
+}</a>
                     </p>
                     <h1 class="list_item_title"><a href="/#/detail/${
-                      restaurant.id
-                    }">${restaurant.name}</a></h1>
+  restaurant.id
+}">${restaurant.name}</a></h1>
                     <div class="list_item_desc">${restaurant.description.slice(
-                      0,
-                      150
-                    )}...</div>
+    0,
+    150
+  )}...</div>
                 </div>
             </div>`;
 const createSkeletonRestaurantTemplate = (count) => {
-  let skeleton = "";
+  let skeleton = '';
 
   for (let i = 0; i < count; i += 1) {
     skeleton += `
@@ -96,7 +96,7 @@ const createRestaurantDetailTemplate = (restaurant) => `
         <span class="category">${category.name}</span>
       `
     )
-    .join("")}
+    .join('')}
   </li>
 </ul>
 </div>
@@ -107,12 +107,12 @@ const createRestaurantDetailTemplate = (restaurant) => `
     <h4>Katalog Makanan</h4>
     <ul>
       ${restaurant.menus.foods
-        .map(
-          (food) => `
+    .map(
+      (food) => `
             <li><p>${food.name}</p></li>
           `
-        )
-        .join("")}
+    )
+    .join('')}
     <ul>
   </div>
 
@@ -120,12 +120,12 @@ const createRestaurantDetailTemplate = (restaurant) => `
     <h4>Drink</h4>
     <ul>
       ${restaurant.menus.drinks
-        .map(
-          (drink) => `
+    .map(
+      (drink) => `
             <li><p>${drink.name}</p></li>
           `
-        )
-        .join("")}
+    )
+    .join('')}
     <ul>
   </div>
 </div>
@@ -134,8 +134,8 @@ const createRestaurantDetailTemplate = (restaurant) => `
 
 <div tabindex="0" class="detail-review">
 ${restaurant.customerReviews
-  .map(
-    (review) => `
+    .map(
+      (review) => `
       <div class="detail-review-item">
         <div class="header-review">
           <p class="name-review"><i title="restaurant" class="fa fa-user-circle" style="font-size:1.3em; padding-right:10px;"></i>${review.name}</p>
@@ -148,8 +148,8 @@ ${restaurant.customerReviews
         </div>
       </div>
     `
-  )
-  .join("")}
+    )
+    .join('')}
 </div>
 </div>
 `;

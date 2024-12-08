@@ -1,5 +1,5 @@
-import API_ENDPOINT from "../globals/api-endpoint";
-import BaseService from "../globals/baseService";
+import API_ENDPOINT from '../globals/api-endpoint';
+import BaseService from '../globals/baseService';
 
 class RestaurantService {
   static async getRestaurants() {

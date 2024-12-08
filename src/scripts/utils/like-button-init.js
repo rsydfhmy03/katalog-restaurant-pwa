@@ -1,4 +1,4 @@
-import FavoriteIdb from "../data/favoriterestaurant-db";
+import FavoriteIdb from '../data/favoriterestaurant-db';
 
 const LikeButtonInitiator = {
   async init({ likeButtonContainer, data }) {
@@ -29,8 +29,8 @@ const LikeButtonInitiator = {
             <i class="fa fa-star-o" aria-hidden="true"></i>
         </button>`;
 
-    const likeButton = document.querySelector("#likeButton");
-    likeButton.addEventListener("click", async () => {
+    const likeButton = document.querySelector('#likeButton');
+    likeButton.addEventListener('click', async () => {
       await FavoriteIdb.putFavorite(this._data);
       this._renderButton();
     });
@@ -42,8 +42,8 @@ const LikeButtonInitiator = {
             <i class="fa fa-star" aria-hidden="true"></i>
         </button>`;
 
-    const likeButton = document.querySelector("#likedButton");
-    likeButton.addEventListener("click", async () => {
+    const likeButton = document.querySelector('#likedButton');
+    likeButton.addEventListener('click', async () => {
       await FavoriteIdb.deleteFavorite(this._data.id);
       this._renderButton();
     });
