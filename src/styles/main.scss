@@ -206,60 +206,6 @@ html {
     }
   }
   
-  // .menu-button-wrapper {
-  //   position: relative;
-  //   // .menu-button {
-  //   //   display: none;
-  //   // }
-  //   .menu-button {
-  //     @extend .touch-target;
-  //     position: absolute;
-  //     top: 0;
-  //     left: 0;
-  //     width: 100%;
-  //     height: 100%;
-  //     background-color: red;
-  //     border: orangered 1px solid;
-  //     opacity: 0;
-  //     cursor: pointer;
-  //     z-index: 2;
-  //   }
-  //   .icon-wrapper {
-  //     cursor: pointer;
-  //     z-index: 1;
-  //     cursor: pointer;
-
-  //     .hamburger {
-  //       position: relative;
-  //       width: 40px;
-  //       height: 30px;
-  //       display: flex;
-  //       flex-direction: column;
-  //       padding: 8px;
-  //       justify-content: space-between;
-
-  //       .hamburger-line {
-  //         width: 100%;
-  //         height: 4px;
-  //         background-color: $hamburger-color;
-  //         border-radius: 4px;
-  //         transition: all 0.3s ease-in-out;
-
-  //         &.first {
-  //           transform-origin: top left;
-  //         }
-
-  //         &.second {
-  //           transform-origin: center;
-  //         }
-
-  //         &.third {
-  //           transform-origin: bottom left;
-  //         }
-  //       }
-  //     }
-  //   }
-
   //   // Item Dropdown
     .item-list {
       position: absolute;
@@ -469,9 +415,14 @@ main {
   padding: 32px;
 }
 .latest {
+  // outline: #ff0000 solid 1px;
   width: 100%;
   margin-top: 30px;
   margin-bottom: 50px;
+  max-width: 1200px; /* Batas maksimum lebar konten */
+  margin: 30px auto 50px; /* Auto untuk sentralisasi */
+  padding: 0 15px; /* Padding untuk memberikan ruang di dalam kontainer */
+  box-sizing: border-box; /* Memastikan padding dihitung dalam lebar */
   text-align: center;
   h1 {
     font-weight: 700;
@@ -582,7 +533,13 @@ footer {
   // outline: #23f2f5 solid 1px;
   grid-gap: 10px;
   padding: 20px;
-  max-width: 1200px;
+  width: 100%;
+  max-width: 1200px; /* Batas maksimum lebar konten */
+  margin: 30px auto 50px; /* Auto untuk sentralisasi */
+  padding: 0 15px; /* Padding untuk memberikan ruang di dalam kontainer */
+  box-sizing: border-box; /* Memastikan padding dihitung dalam lebar */
+  // max-width: 1200px;
+  min-width: 10px;
   // margin: 0 auto;
   .h3 {
     // outline: rgb(174, 255, 0) solid 1px;
@@ -609,7 +566,9 @@ footer {
 /* Gambar restoran */
 .img-container {
   // outline: red solid 1px;
+  object-fit: cover;
   width: 100%;
+  height: auto; 
   max-height: 400px;
   object-position: center;
   overflow: hidden;
@@ -619,7 +578,9 @@ footer {
 }
 
 .detail-img {
+  object-fit: cover;
   width: 100%;
+  height: auto; 
   object-fit: cover;
   height: 300px;
   border-radius: 10px;
@@ -627,6 +588,8 @@ footer {
 }
 
 .detail-name-address-rating {
+  height: auto; 
+  object-fit: cover;
   display: inline-block;
   margin: 0;
 }
@@ -636,6 +599,7 @@ footer {
 }
 /* Info restoran */
 .container-info {
+  object-fit: cover;
   list-style: none;
   margin: 20px 0;
   padding: 0;
@@ -665,6 +629,7 @@ footer {
 
 /* Deskripsi restoran */
 .detail-desc {
+  object-fit: cover;
   margin-top: 20px;
   font-size: 1rem;
   line-height: 1.5;
@@ -674,6 +639,7 @@ footer {
 
 .detail-food {
   // outline: red solid 1px;
+  object-fit: cover;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -683,6 +649,7 @@ footer {
 
 .detail-food ul,
 .detail-drink ul {
+  object-fit: cover;
   color: var(--secondary-color);
   padding-left: 0;
 }

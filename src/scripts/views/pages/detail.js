@@ -9,6 +9,7 @@ const Detail = {
   async render() {
     return `
       <div class="main">
+      <div class="latest">
         <h2 tabindex="0" class="explore-restaurant__label">Detail Restaurant</h2>
         <section id="detail-rest"></section>
         <div class="like" id="likeButtonContainer"></div>
@@ -33,6 +34,7 @@ const Detail = {
             </form>
           </div>
         </div>
+      </div>
       </div>
     `;
   },

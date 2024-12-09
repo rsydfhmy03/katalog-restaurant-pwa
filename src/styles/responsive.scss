@@ -1,6 +1,27 @@
 $color_1: black;
 $background-color_1: #fff;
 
+@media screen and (max-width: 350px) and (min-width: 50px) {
+  html {
+    margin: 0;
+    padding: 0;
+    width: 250%;
+    height: 250%;
+  }
+  .img-container {
+    // outline: red solid 1px;
+    object-fit: cover;
+    // width: 80%;
+    width: auto;
+    max-height: 100%;
+    object-position: center;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+}
 // Atur Navbar untuk Desktop (> 500px)
 @media screen and (min-width: 350px) {
   .menumob {
