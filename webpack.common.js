@@ -64,7 +64,7 @@ module.exports = {
         {
           urlPattern: ({ url }) =>
             url.href.startsWith(
-              'https://restaurant-api.dicoding.dev/images/large'
+              'https://restaurant-api.dicoding.dev/images'
             ),
           handler: 'StaleWhileRevalidate',
           options: {

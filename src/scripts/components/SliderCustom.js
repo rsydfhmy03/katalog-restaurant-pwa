@@ -1,4 +1,3 @@
-// src/scripts/component/SliderCustom.js
 class SliderCustom extends HTMLElement {
   connectedCallback() {
     this.render();

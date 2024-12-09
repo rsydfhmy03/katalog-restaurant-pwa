@@ -135,71 +135,142 @@ html {
     font-size: 20px;
     font-weight: bold;
   }
-
   .menu-button-wrapper {
     position: relative;
-    // .menu-button {
-    //   display: none;
-    // }
+  
     .menu-button {
-      @extend .touch-target;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: red;
-      border: orangered 1px solid;
-      opacity: 0;
-      cursor: pointer;
-      z-index: 2;
+      display: none; // Checkbox tidak terlihat untuk aksesibilitas
     }
-    .icon-wrapper {
+  
+    button {
+      @extend .touch-target;
+      background: none;
+      border: none;
       cursor: pointer;
       z-index: 1;
-      cursor: pointer;
-
-      .hamburger {
-        position: relative;
-        width: 40px;
-        height: 30px;
-        display: flex;
-        flex-direction: column;
-        padding: 8px;
-        justify-content: space-between;
-
-        .hamburger-line {
-          width: 100%;
-          height: 4px;
-          background-color: $hamburger-color;
-          border-radius: 4px;
-          transition: all 0.3s ease-in-out;
-
-          &.first {
-            transform-origin: top left;
-          }
-
-          &.second {
-            transform-origin: center;
-          }
-
-          &.third {
-            transform-origin: bottom left;
-          }
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  
+      &:focus {
+        outline: 2px solid $hover-color;
+        outline-offset: 4px;
+      }
+    }
+  
+    .hamburger {
+      position: relative;
+      width: 40px;
+      height: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+  
+      .hamburger-line {
+        width: 100%;
+        height: 4px;
+        background-color: $hamburger-color;
+        border-radius: 4px;
+        transition: all 0.3s ease-in-out;
+  
+        &.first {
+          transform-origin: top left;
+        }
+  
+        &.second {
+          transform-origin: center;
+        }
+  
+        &.third {
+          transform-origin: bottom left;
         }
       }
     }
+  
+    .menu-button:checked ~ .item-list,
+    button[aria-expanded="true"] ~ .item-list {
+      transform: translateX(-50%) scale(1);
+      opacity: 1;
+    }
+  
+    button[aria-expanded="true"] .hamburger-line.first {
+      transform: rotate(45deg);
+    }
+  
+    button[aria-expanded="true"] .hamburger-line.second {
+      opacity: 0;
+    }
+  
+    button[aria-expanded="true"] .hamburger-line.third {
+      transform: rotate(-45deg);
+    }
+  }
+  
+  // .menu-button-wrapper {
+  //   position: relative;
+  //   // .menu-button {
+  //   //   display: none;
+  //   // }
+  //   .menu-button {
+  //     @extend .touch-target;
+  //     position: absolute;
+  //     top: 0;
+  //     left: 0;
+  //     width: 100%;
+  //     height: 100%;
+  //     background-color: red;
+  //     border: orangered 1px solid;
+  //     opacity: 0;
+  //     cursor: pointer;
+  //     z-index: 2;
+  //   }
+  //   .icon-wrapper {
+  //     cursor: pointer;
+  //     z-index: 1;
+  //     cursor: pointer;
 
-    // Item Dropdown
+  //     .hamburger {
+  //       position: relative;
+  //       width: 40px;
+  //       height: 30px;
+  //       display: flex;
+  //       flex-direction: column;
+  //       padding: 8px;
+  //       justify-content: space-between;
+
+  //       .hamburger-line {
+  //         width: 100%;
+  //         height: 4px;
+  //         background-color: $hamburger-color;
+  //         border-radius: 4px;
+  //         transition: all 0.3s ease-in-out;
+
+  //         &.first {
+  //           transform-origin: top left;
+  //         }
+
+  //         &.second {
+  //           transform-origin: center;
+  //         }
+
+  //         &.third {
+  //           transform-origin: bottom left;
+  //         }
+  //       }
+  //     }
+  //   }
+
+  //   // Item Dropdown
     .item-list {
       position: absolute;
       top: 60px;
       left: 50%;
       transform: translateX(-50%) scale(0);
       transform-origin: top;
-      background-color: $menu-item-bg;
-      width: 200px;
-      border-radius: 10px;
+      // background-color: $menu-item-bg;
+      background-color: #000000CC;
+      width: 100%;
+      // border-radius: 10px;
       opacity: 0;
       box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
       transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
@@ -213,6 +284,7 @@ html {
           padding: 10px 20px;
           text-decoration: none;
           color: $text-color;
+          // color: $color_4;
           text-transform: uppercase;
           font-weight: bold;
 
@@ -223,7 +295,7 @@ html {
       }
     }
 
-    // Animasi Checkbox untuk Toggle
+  //   // Animasi Checkbox untuk Toggle
     .menu-button:checked ~ .item-list {
       transform: translateX(-50%) scale(1);
       opacity: 1;
@@ -240,7 +312,7 @@ html {
     .menu-button:checked ~ .icon-wrapper .hamburger-line.third {
       transform: rotate(-45deg);
     }
-  }
+  // }
 }
 // Hero Section
 
