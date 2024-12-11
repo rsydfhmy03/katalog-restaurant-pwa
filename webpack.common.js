@@ -7,6 +7,8 @@ const path = require('path');
 const ImageminWebpackPlugin = require('imagemin-webpack-plugin').default;
 const ImageminMozjpeg = require('imagemin-mozjpeg');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -34,12 +36,14 @@ module.exports = {
         },
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        test: /\.(png|svg|jpg|jpeg|gif|webp)$/i,
         type: 'asset/resource',
       },
     ],
   },
   optimization: {
+    minimize: true,
+    minimizer: [new TerserPlugin()],
     splitChunks: {
       chunks: 'all',
       minSize: 20000,
@@ -90,9 +94,7 @@ module.exports = {
         },
         {
           urlPattern: ({ url }) =>
-            url.href.startsWith(
-              'https://restaurant-api.dicoding.dev/images'
-            ),
+            url.href.startsWith('https://restaurant-api.dicoding.dev/images'),
           handler: 'StaleWhileRevalidate',
           options: {
             cacheName: 'resto',
@@ -108,6 +110,15 @@ module.exports = {
           progressive: true,
         }),
       ],
+    }),
+    new ImageMinimizerPlugin({
+      minimizerOptions: {
+        plugins: [
+          ['mozjpeg', { quality: 50 }],
+          ['pngquant', { quality: [0.5, 0.6] }],
+          ['webp', { quality: 50 }],
+        ],
+      },
     }),
   ],
 };

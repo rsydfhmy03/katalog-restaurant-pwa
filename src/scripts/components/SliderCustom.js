@@ -8,7 +8,7 @@ class SliderCustom extends HTMLElement {
         <div class="slider">
           <div class="list">
             <div class="item active">
-              <img src="images/heros/hero-image_1.jpg" alt="Taste of Tradition" class="lazyload" />
+              <img  src="images/heros/hero-image1_mini.jpg" data-src="images/heros/hero-image_1.jpg" alt="Taste of Tradition" loading="eager" decoding="async" />
               <div class="content">
                 <p>Taste of Tradition</p>
                 <h2>Explore the Taste of Tradition</h2>
