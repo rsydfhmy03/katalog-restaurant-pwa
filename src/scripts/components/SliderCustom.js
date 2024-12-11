@@ -8,21 +8,21 @@ class SliderCustom extends HTMLElement {
         <div class="slider">
           <div class="list">
             <div class="item active">
-              <img src="images/heros/hero-image_1.jpg" alt="Taste of Tradition" />
+              <img src="images/heros/hero-image_1.jpg" alt="Taste of Tradition" class="lazyload"/>
               <div class="content">
                 <p>Taste of Tradition</p>
                 <h2>Explore the Taste of Tradition</h2>
               </div>
             </div>
             <div class="item">
-              <img src="images/heros/hero-image_2.jpg" alt="Fresh & Local" />
+              <img src="images/heros/hero-image_2.jpg" alt="Fresh & Local" class="lazyload" />
               <div class="content">
                 <p>Fresh & Local</p>
                 <h2>Farm-to-Table Delights</h2>
               </div>
             </div>
             <div class="item">
-              <img src="images/heros/hero-image_3.jpg" alt="Signature Dishes" />
+              <img src="images/heros/hero-image_3.jpg" alt="Signature Dishes" class="lazyload" />
               <div class="content">
                 <p>Signature Dishes</p>
                 <h2>A Feast for Your Senses</h2>
@@ -35,15 +35,15 @@ class SliderCustom extends HTMLElement {
           </div>
           <div class="thumbnail">
             <div class="item active">
-              <img src="images/heros/hero-image_1.jpg" alt="Taste of Tradition" />
+              <img src="images/heros/hero-image_1.jpg" alt="Taste of Tradition" class="lazyload" />
               <div class="content">Taste of Tradition</div>
             </div>
             <div class="item">
-              <img src="images/heros/hero-image_2.jpg" alt="Fresh & Local" />
+              <img src="images/heros/hero-image_2.jpg" alt="Fresh & Local" class="lazyload" />
               <div class="content">Fresh & Local</div>
             </div>
             <div class="item">
-              <img src="images/heros/hero-image_3.jpg" alt="Signature Dishes" />
+              <img src="images/heros/hero-image_3.jpg" alt="Signature Dishes" class="lazyload" />
               <div class="content">Signature Dishes</div>
             </div>
           </div>
