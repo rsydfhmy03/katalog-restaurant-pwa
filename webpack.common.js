@@ -6,6 +6,7 @@ const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
 const path = require('path');
 const ImageminWebpackPlugin = require('imagemin-webpack-plugin').default;
 const ImageminMozjpeg = require('imagemin-mozjpeg');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
   entry: {
@@ -38,7 +39,31 @@ module.exports = {
       },
     ],
   },
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+      minSize: 20000,
+      maxSize: 70000,
+      minChunks: 1,
+      maxAsyncRequests: 30,
+      maxInitialRequests: 30,
+      automaticNameDelimiter: '~',
+      enforceSizeThreshold: 50000,
+      cacheGroups: {
+        defaultVendors: {
+          test: /[\\/]node_modules[\\/]/,
+          priority: -10,
+        },
+        default: {
+          minChunks: 2,
+          priority: -20,
+          reuseExistingChunk: true,
+        },
+      },
+    },
+  },
   plugins: [
+    new BundleAnalyzerPlugin(),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'src/templates/index.html'),

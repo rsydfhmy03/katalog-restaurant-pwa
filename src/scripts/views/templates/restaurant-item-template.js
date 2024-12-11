@@ -2,7 +2,7 @@ import CONFIG from '../../globals/config';
 
 const createRestaurantItemTemplate = (restaurant) => `
   <div class="list_item">
-    <img class="list_item_thumb" loading="lazy" src="${
+    <img class="list_item_thumb lazyload" loading="lazy" src="${
   CONFIG.BASE_IMAGE_SMALL_URL + restaurant.pictureId
 }" alt="${restaurant.name}" title="${restaurant.name}">
     <div class="city">${restaurant.city}</div>
