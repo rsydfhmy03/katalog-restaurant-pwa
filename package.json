@@ -9,6 +9,7 @@
     "lint": "eslint ./src",
     "fix": "eslint ./src --fix",
     "fix-test": "eslint ./tests --fix",
+    "fix-e2e": "eslint ./e2e --fix",
     "serve": "http-server dist",
     "test": "jest",
     "test:watch": "jest --watchAll",
