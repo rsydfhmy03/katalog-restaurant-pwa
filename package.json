@@ -6,9 +6,14 @@
   "scripts": {
     "start-dev": "webpack-dev-server --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
+    "lint": "eslint ./src",
+    "fix": "eslint ./src --fix",
+    "fix-test": "eslint ./tests --fix",
+    "fix-e2e": "eslint ./e2e --fix",
     "serve": "http-server dist",
     "test": "jest",
-    "test:watch": "jest --watchAll"
+    "test:watch": "jest --watchAll",
+    "e2e": "codeceptjs run --steps"
   },
   "keywords": [],
   "author": "Fahmy Rosyadi mitahudeveloper01@gmail.com",
@@ -16,29 +21,46 @@
   "devDependencies": {
     "@babel/core": "^7.25.8",
     "@babel/preset-env": "^7.25.8",
+    "@eslint/js": "^9.16.0",
     "@jest/globals": "^29.6.1",
     "@types/jest": "^29.5.3",
     "babel-jest": "^29.6.1",
     "babel-loader": "^8.4.1",
     "clean-webpack-plugin": "^4.0.0",
+    "codeceptjs": "^3.6.10",
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.11.0",
+    "eslint": "^9.16.0",
+    "eslint-config-dicodingacademy": "^0.9.4",
     "fake-indexeddb": "^4.0.2",
+    "globals": "^15.13.0",
     "html-webpack-plugin": "^5.6.0",
     "http-server": "^14.1.1",
+    "image-minimizer-webpack-plugin": "^4.1.1",
+    "imagemin-mozjpeg": "^9.0.0",
+    "imagemin-pngquant": "^10.0.0",
+    "imagemin-webp": "^8.0.0",
+    "imagemin-webpack-plugin": "^2.4.2",
     "jest": "^29.6.1",
     "jest-environment-jsdom": "^29.6.1",
+    "lazysizes": "^5.3.2",
+    "playwright": "^1.49.1",
     "sass": "^1.79.5",
     "sass-loader": "^16.0.2",
     "style-loader": "^3.3.4",
+    "terser-webpack-plugin": "^5.3.10",
     "webpack": "^5.95.0",
+    "webpack-bundle-analyzer": "^4.10.2",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.2",
     "webpack-merge": "^5.9.0",
-    "whatwg-fetch": "^3.6.2"
+    "whatwg-fetch": "^3.6.2",
+    "workbox-window": "^7.3.0"
   },
   "dependencies": {
+    "idb": "^8.0.0",
     "regenerator-runtime": "^0.14.0",
-    "restaurant-apps": "file:"
+    "restaurant-apps": "file:",
+    "workbox-webpack-plugin": "^7.3.0"
   }
 }
