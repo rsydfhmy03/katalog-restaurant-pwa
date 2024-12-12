@@ -21,5 +21,5 @@ exports.config = {
   include: {
     I: './steps_file.js'
   },
-  name: 'submission2_katalog-restorant_Fahmy Rosyadi'
+  name: 'submission_katalog-restorant_Fahmy Rosyadi'
 }
