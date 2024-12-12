@@ -1,3 +1,6 @@
+/* eslint-disable linebreak-style */
+/* eslint-disable camelcase */
+/* eslint-disable linebreak-style */
 /* eslint-disable no-undef */
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -43,14 +46,25 @@ module.exports = {
   },
   optimization: {
     minimize: true,
-    minimizer: [new TerserPlugin()],
+    // minimizer: [new TerserPlugin()],
+    minimizer: [
+      new TerserPlugin({
+        parallel: true,
+        terserOptions: {
+          compress: {
+            drop_console: true,
+          },
+        },
+      }),
+    ],
     splitChunks: {
       chunks: 'all',
       minSize: 20000,
-      maxSize: 70000,
+      // maxSize: 70000,
+      maxSize: 250000,
       minChunks: 1,
-      maxAsyncRequests: 30,
-      maxInitialRequests: 30,
+      maxAsyncRequests: 20,
+      maxInitialRequests: 20,
       automaticNameDelimiter: '~',
       enforceSizeThreshold: 50000,
       cacheGroups: {
@@ -85,24 +99,41 @@ module.exports = {
       swDest: './sw.bundle.js',
       runtimeCaching: [
         {
-          urlPattern: ({ url }) =>
-            url.href.startsWith('https://restaurant-api.dicoding.dev/list'),
+          urlPattern: ({ url }) => url.href.includes('restaurant-api.dicoding.dev'),
           handler: 'StaleWhileRevalidate',
           options: {
-            cacheName: 'resto',
-          },
-        },
-        {
-          urlPattern: ({ url }) =>
-            url.href.startsWith('https://restaurant-api.dicoding.dev/images'),
-          handler: 'StaleWhileRevalidate',
-          options: {
-            cacheName: 'resto',
+            cacheName: 'resto-cache',
+            expiration: {
+              maxEntries: 50,
+              maxAgeSeconds: 30 * 24 * 60 * 60,
+            },
           },
         },
       ],
       ignoreURLParametersMatching: [/^utm_/, /^fbclid$/],
     }),
+    // new WorkboxWebpackPlugin.GenerateSW({
+    //   swDest: './sw.bundle.js',
+    //   runtimeCaching: [
+    //     {
+    //       urlPattern: ({ url }) =>
+    //         url.href.startsWith('https://restaurant-api.dicoding.dev/list'),
+    //       handler: 'StaleWhileRevalidate',
+    //       options: {
+    //         cacheName: 'resto',
+    //       },
+    //     },
+    //     {
+    //       urlPattern: ({ url }) =>
+    //         url.href.startsWith('https://restaurant-api.dicoding.dev/images'),
+    //       handler: 'StaleWhileRevalidate',
+    //       options: {
+    //         cacheName: 'resto',
+    //       },
+    //     },
+    //   ],
+    //   ignoreURLParametersMatching: [/^utm_/, /^fbclid$/],
+    // }),
     new ImageminWebpackPlugin({
       plugins: [
         ImageminMozjpeg({

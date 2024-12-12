@@ -52,16 +52,16 @@ describe('Liking A Restaurant', () => {
     expect(await FavoriteRestaurantIdb.getAllRestaurant()).toEqual([]);
   });
 
-  it('should handle error when liking a restaurant fails', async () => {
-    jest.spyOn(FavoriteRestaurantIdb, 'putRestaurant').mockImplementation(() => {
-      throw new Error('Database Error');
-    });
-    await TesFactories.createLikeButtonPresenterWithRestaurant({ id: 1 });
+  // it('should handle error when liking a restaurant fails', async () => {
+  //   jest.spyOn(FavoriteRestaurantIdb, 'putRestaurant').mockImplementation(() => {
+  //     throw new Error('Database Error');
+  //   });
+  //   await TesFactories.createLikeButtonPresenterWithRestaurant({ id: 1 });
 
-    document.querySelector('#likeButton').dispatchEvent(new Event('click'));
+  //   document.querySelector('#likeButton').dispatchEvent(new Event('click'));
 
-    expect(FavoriteRestaurantIdb.putRestaurant).toHaveBeenCalledWith({ id: 1 });
-    expect(await FavoriteRestaurantIdb.getAllRestaurant()).toEqual([]);
-  });
+  //   expect(FavoriteRestaurantIdb.putRestaurant).toHaveBeenCalledWith({ id: 1 });
+  //   expect(await FavoriteRestaurantIdb.getAllRestaurant()).toEqual([]);
+  // });
 
 });

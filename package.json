@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "http-server dist",
     "start-dev": "webpack-dev-server --config webpack.dev.js",
-    "build": "webpack --config webpack.prod.js",
+    "build": "webpack --config webpack.prod.js --progress",
     "lint": "eslint ./src",
     "fix": "eslint ./src --fix",
     "fix-test": "eslint ./tests --fix",
@@ -13,7 +14,9 @@
     "serve": "http-server dist",
     "test": "jest",
     "test:watch": "jest --watchAll",
-    "e2e": "codeceptjs run --steps"
+    "e2e": "codeceptjs run --steps",
+    "prebuild": "npm run lint",
+    "postbuild": "npm run test"
   },
   "keywords": [],
   "author": "Fahmy Rosyadi mitahudeveloper01@gmail.com",
