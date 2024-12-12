@@ -8,6 +8,7 @@ const LikeButtonPresenter = {
     this._likeButtonContainer = likeButtonContainer;
     this._restaurant = restaurant;
     this._favoriteRestaurants = favoriteRestaurants;
+
     await this._renderButton();
   },
 
@@ -15,38 +16,36 @@ const LikeButtonPresenter = {
     const { id } = this._restaurant;
 
     if (await this._isRestaurantExist(id)) {
-      this._renderLikedButton();
+      console.log('Restaurant exists in favorites, rendering unlike button'); // Debug log
+      this._renderUnlike();
     } else {
-      this._renderLikeButton();
+      console.log('Restaurant does not exist in favorites, rendering like button'); // Debug log
+      this._renderLike();
     }
   },
 
   async _isRestaurantExist(id) {
     const restaurant = await this._favoriteRestaurants.getRestaurant(id);
+    console.log('Checked restaurant existence:', restaurant); // Debug log
     return !!restaurant;
   },
 
-  _renderLikeButton() {
+  _renderLike() {
     this._likeButtonContainer.innerHTML = createLikeRestaurantButtonTemplate();
-    const likeButton = document.getElementById('likeButton');
+    const likeButton = document.querySelector('#likeButton');
     likeButton.addEventListener('click', async () => {
-      try {
-        await this._favoriteRestaurants.putRestaurant(this._restaurant);
-        this._renderButton();
-      } catch (error) {
-        console.error('Failed to like the restaurant:', error.message);
-      }
+      await this._favoriteRestaurants.putRestaurant(this._restaurant);
+      console.log('Liked restaurant, now rendering unlike button'); // Debug log
+      this._renderButton();
     });
   },
 
-
-  _renderLikedButton() {
-    this._likeButtonContainer.innerHTML =
-      createUnlikeRestaurantButtonTemplate();
-
-    const likedButton = document.getElementById('likeButton');
-    likedButton.addEventListener('click', async () => {
+  _renderUnlike() {
+    this._likeButtonContainer.innerHTML = createUnlikeRestaurantButtonTemplate();
+    const unlikeButton = document.querySelector('#likeButton');
+    unlikeButton.addEventListener('click', async () => {
       await this._favoriteRestaurants.deleteRestaurant(this._restaurant.id);
+      console.log('Unliked restaurant, now rendering like button'); // Debug log
       this._renderButton();
     });
   },

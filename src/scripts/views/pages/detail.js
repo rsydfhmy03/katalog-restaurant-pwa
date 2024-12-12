@@ -66,24 +66,6 @@ const Detail = {
         },
       });
 
-      // Event listener untuk submit review
-      // const submitReview = document.getElementById('submit-review');
-      // submitReview.addEventListener('click', async (event) => {
-      //   event.preventDefault();
-      //   // Panggil fungsi PostReview
-      //   await PostReview();
-
-      //   // Fetch ulang data restoran untuk mendapatkan review terbaru
-      //   const updatedRestaurant = await RestaurantSource.detailRestaurant(url.id);
-
-      //   // Pastikan elemen #detail-rest ada
-      //   const updatedContainer = document.getElementById('detail-rest');
-      //   if (updatedContainer) {
-      //     updatedContainer.innerHTML = createRestaurantDetailTemplate(updatedRestaurant);
-      //   } else {
-      //     console.error('Element #detail-rest tidak ditemukan setelah submit review.');
-      //   }
-      // });
       const submitReview = document.getElementById('submit-review');
       submitReview.addEventListener('click', async (event) => {
         event.preventDefault(); // Mencegah form refresh
