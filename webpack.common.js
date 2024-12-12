@@ -7,7 +7,7 @@ const path = require('path');
 const ImageminWebpackPlugin = require('imagemin-webpack-plugin').default;
 const ImageminMozjpeg = require('imagemin-mozjpeg');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
+// const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
@@ -111,14 +111,17 @@ module.exports = {
         }),
       ],
     }),
-    new ImageMinimizerPlugin({
-      minimizerOptions: {
-        plugins: [
-          ['mozjpeg', { quality: 50 }],
-          ['pngquant', { quality: [0.5, 0.6] }],
-          ['webp', { quality: 50 }],
-        ],
-      },
-    }),
+    // new ImageMinimizerPlugin({
+    //   minimizer: {
+    //     implementation: ImageMinimizerPlugin.imageminGenerate,
+    //     options: {
+    //       plugins: [
+    //         ['mozjpeg', { quality: 50 }],
+    //         ['pngquant', { quality: [0.5, 0.6] }],
+    //         ['imagemin-webp', { quality: 50 }],
+    //       ],
+    //     },
+    //   },
+    // }),
   ],
 };

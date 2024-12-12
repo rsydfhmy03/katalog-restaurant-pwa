@@ -28,13 +28,17 @@ const LikeButtonPresenter = {
 
   _renderLikeButton() {
     this._likeButtonContainer.innerHTML = createLikeRestaurantButtonTemplate();
-
     const likeButton = document.getElementById('likeButton');
     likeButton.addEventListener('click', async () => {
-      await this._favoriteRestaurants.putRestaurant(this._restaurant);
-      this._renderButton();
+      try {
+        await this._favoriteRestaurants.putRestaurant(this._restaurant);
+        this._renderButton();
+      } catch (error) {
+        console.error('Failed to like the restaurant:', error.message);
+      }
     });
   },
+
 
   _renderLikedButton() {
     this._likeButtonContainer.innerHTML =

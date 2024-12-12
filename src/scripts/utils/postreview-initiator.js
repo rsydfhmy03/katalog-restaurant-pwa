@@ -7,6 +7,12 @@ const PostReview = async () => {
   const inputReview = document.getElementById('inputReview');
   const reviewContainer = document.querySelector('.detail-review');
 
+  // Validasi input kosong
+  if (!inputReviewName.value.trim() || !inputReview.value.trim()) {
+    console.warn('Input name or review cannot be empty!');
+    return;
+  }
+
   const dataInput = {
     id: url.id,
     name: inputReviewName.value,
@@ -23,10 +29,8 @@ const PostReview = async () => {
     <div class="detail-review-item">
       <div class="header-review">
         <p class="name-review">${dataInput.name}</p>
-
         <p class="date-review">${date}</p>
       </div>
-
       <div class="body-review">
         ${dataInput.review}
       </div>
@@ -40,3 +44,4 @@ const PostReview = async () => {
 };
 
 export default PostReview;
+
