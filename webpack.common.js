@@ -61,7 +61,7 @@ module.exports = {
       chunks: 'all',
       minSize: 20000,
       // maxSize: 70000,
-      maxSize: 250000,
+      maxSize: 55000,
       minChunks: 1,
       maxAsyncRequests: 20,
       maxInitialRequests: 20,
@@ -95,45 +95,44 @@ module.exports = {
         },
       ],
     }),
-    new WorkboxWebpackPlugin.GenerateSW({
-      swDest: './sw.bundle.js',
-      runtimeCaching: [
-        {
-          urlPattern: ({ url }) => url.href.includes('restaurant-api.dicoding.dev'),
-          handler: 'StaleWhileRevalidate',
-          options: {
-            cacheName: 'resto-cache',
-            expiration: {
-              maxEntries: 50,
-              maxAgeSeconds: 30 * 24 * 60 * 60,
-            },
-          },
-        },
-      ],
-      ignoreURLParametersMatching: [/^utm_/, /^fbclid$/],
-    }),
     // new WorkboxWebpackPlugin.GenerateSW({
     //   swDest: './sw.bundle.js',
     //   runtimeCaching: [
     //     {
-    //       urlPattern: ({ url }) =>
-    //         url.href.startsWith('https://restaurant-api.dicoding.dev/list'),
+    //       urlPattern: ({ url }) => url.href.includes('restaurant-api.dicoding.dev'),
     //       handler: 'StaleWhileRevalidate',
     //       options: {
-    //         cacheName: 'resto',
-    //       },
-    //     },
-    //     {
-    //       urlPattern: ({ url }) =>
-    //         url.href.startsWith('https://restaurant-api.dicoding.dev/images'),
-    //       handler: 'StaleWhileRevalidate',
-    //       options: {
-    //         cacheName: 'resto',
+    //         cacheName: 'resto-cache',
+    //         expiration: {
+    //           maxEntries: 50,
+    //           maxAgeSeconds: 30 * 24 * 60 * 60,
+    //         },
     //       },
     //     },
     //   ],
     //   ignoreURLParametersMatching: [/^utm_/, /^fbclid$/],
     // }),
+    new WorkboxWebpackPlugin.GenerateSW({
+      swDest: './sw.bundle.js',
+      runtimeCaching: [
+        {
+          urlPattern: ({ url }) => url.origin === 'https://restaurant-api.dicoding.dev', // Match domain yang sesuai
+          handler: 'StaleWhileRevalidate',
+          options: {
+            cacheName: 'resto-api',
+          },
+        },
+        {
+          urlPattern: ({ url }) => url.origin === 'https://restaurant-api.dicoding.dev/images', // Match images domain
+          handler: 'StaleWhileRevalidate',
+          options: {
+            cacheName: 'resto-images',
+          },
+        },
+      ],
+      ignoreURLParametersMatching: [/^utm_/, /^fbclid$/],
+    }),
+
     new ImageminWebpackPlugin({
       plugins: [
         ImageminMozjpeg({

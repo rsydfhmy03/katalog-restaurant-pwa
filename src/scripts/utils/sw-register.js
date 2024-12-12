@@ -8,6 +8,17 @@ const swRegister = async () => {
 
   const wb = new Workbox('./sw.bundle.js');
 
+  wb.addEventListener('installed', (event) => {
+    if (event.isUpdate) {
+      // Clear cache when a new service worker is installed
+      caches.keys().then((cacheNames) => {
+        cacheNames.forEach((cacheName) => {
+          caches.delete(cacheName);  // Delete old caches
+        });
+      });
+    }
+  });
+
   try {
     await wb.register();
     console.log('Service worker registered');
@@ -17,4 +28,3 @@ const swRegister = async () => {
 };
 
 export default swRegister;
-

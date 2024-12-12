@@ -22,4 +22,4 @@ exports.config = {
     I: './steps_file.js'
   },
   name: 'submission_katalog-restorant_Fahmy Rosyadi'
-}
+};

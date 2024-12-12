@@ -1,5 +1,7 @@
 import 'regenerator-runtime';
 import CacheHelper from './utils/chace-helper';
+import CONFIG from './globals/config';
+const cacheName = CONFIG.CACHE_NAME;
 
 // Caching the listed asset below
 const assetsToCache = [
@@ -28,8 +30,19 @@ self.addEventListener('install', (event) => {
 
 self.addEventListener('activate', (event) => {
   console.log('[Service Worker] Activating Service Worker ....');
-  event.waitUntil(CacheHelper.deleteOldCache());
+  event.waitUntil(
+    caches.keys().then((cacheNames) => {
+      return Promise.all(
+        cacheNames.map((currentCacheName) => {
+          if (currentCacheName !== cacheName) {
+            return caches.delete(currentCacheName);  // Hapus cache lama jika tidak sesuai
+          }
+        })
+      );
+    })
+  );
 });
+
 
 self.addEventListener('fetch', (event) => {
   event.respondWith(CacheHelper.revalidateCache(event.request));

@@ -1,3 +1,16 @@
-runtime: nodejs18
-env_variables:
-  NODE_ENV: production
+# runtime: nodejs20  # Versi runtime terbaru yang didukung
+
+# handlers:
+#   - url: /
+#     static_files: dist/index.html
+#     upload: dist/
+#   - url: /static
+#     static_dir: dist
+runtime: nodejs20
+entrypoint: npm start
+
+handlers:
+- url: /.*
+  static_files: dist/index.html
+  upload: dist/
+  secure: always
