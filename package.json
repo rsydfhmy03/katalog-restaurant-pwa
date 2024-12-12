@@ -8,6 +8,7 @@
     "build": "webpack --config webpack.prod.js",
     "lint": "eslint ./src",
     "fix": "eslint ./src --fix",
+    "fix-test": "eslint ./tests --fix",
     "serve": "http-server dist",
     "test": "jest",
     "test:watch": "jest --watchAll"
