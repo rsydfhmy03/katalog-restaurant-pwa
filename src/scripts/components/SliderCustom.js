@@ -8,21 +8,33 @@ class SliderCustom extends HTMLElement {
         <div class="slider">
           <div class="list">
             <div class="item active">
-              <img  src="images/heros/hero-image1_mini.jpg" data-src="images/heros/hero-image_1.jpg" alt="Taste of Tradition" loading="eager" decoding="async" />
+            <picture>
+              <source media="(max-width: 480px)" srcset="images/heros/hero-image1_mini-small.jpg" />
+              <source media="(max-width: 800px)" srcset="images/heros/hero-image1_mini-medium.jpg" />
+              <img src="images/heros/hero-image1_mini-large.jpg" alt="Taste of Tradition" loading="eager" decoding="async" />
+            </picture>
               <div class="content">
                 <p>Taste of Tradition</p>
                 <h2>Explore the Taste of Tradition</h2>
               </div>
             </div>
             <div class="item">
-              <img src="images/heros/hero-image_2.jpg" alt="Fresh & Local" class="lazyload" loading="lazy" />
+            <picture>
+              <source media="(max-width: 480px)" srcset="images/heros/hero-image_2-small.jpg" />
+              <source media="(max-width: 800px)" srcset="images/heros/hero-image_2-medium.jpg" />
+              <img src="images/heros/hero-image_2-large.jpg" alt="Fresh & Local" loading="lazy" decoding="async" />
+            </picture>
               <div class="content">
                 <p>Fresh & Local</p>
                 <h2>Farm-to-Table Delights</h2>
               </div>
             </div>
             <div class="item">
-              <img src="images/heros/hero-image_3.jpg" alt="Signature Dishes" class="lazyload" loading="lazy" />
+            <picture>
+              <source media="(max-width: 480px)" srcset="images/heros/hero-image_3-small.jpg" />
+              <source media="(max-width: 800px)" srcset="images/heros/hero-image_3-medium.jpg" />
+              <img src="images/heros/hero-image_3-large.jpg" alt="Signature Dishes" loading="lazy" decoding="async" />
+            </picture>
               <div class="content">
                 <p>Signature Dishes</p>
                 <h2>A Feast for Your Senses</h2>
@@ -35,16 +47,28 @@ class SliderCustom extends HTMLElement {
           </div>
           <div class="thumbnail">
             <div class="item active">
-              <img src="images/heros/hero-image_1.jpg" alt="Taste of Tradition" class="lazyload" loading="lazy" />
+            <picture class=" ls-is-cached lazyloaded">
+              <source media="(max-width: 480px)" srcset="images/heros/hero-image1_mini-small.jpg" />
+              <source media="(max-width: 800px)" srcset="images/heros/hero-image1_mini-medium.jpg" />
+              <img src="images/heros/hero-image1_mini-large.jpg" alt="Taste of Tradition" loading="eager" decoding="async" class=" ls-is-cached lazyloaded" />
+            </picture class=" ls-is-cached lazyloaded">
               <div class="content">Taste of Tradition</div>
             </div>
             <div class="item">
-              <img src="images/heros/hero-image_2.jpg" alt="Fresh & Local" class="lazyload" loading="lazy" />
-              <div class="content">Fresh & Local</div>
+            <picture class=" ls-is-cached lazyloaded">
+              <source media="(max-width: 480px)" srcset="images/heros/hero-image_2-small.jpg" />
+              <source media="(max-width: 800px)" srcset="images/heros/hero-image_2-medium.jpg" />
+              <img src="images/heros/hero-image_2-large.jpg" alt="Fresh & Local" loading="lazy" decoding="async" class=" ls-is-cached lazyloaded" />
+            </picture>
+            <div class="content">Fresh & Local</div>
             </div>
             <div class="item">
-              <img src="images/heros/hero-image_3.jpg" alt="Signature Dishes" class="lazyload" loading="lazy" />
-              <div class="content">Signature Dishes</div>
+            <picture class=" ls-is-cached lazyloaded">
+              <source media="(max-width: 480px)" srcset="images/heros/hero-image_3-small.jpg" />
+              <source media="(max-width: 800px)" srcset="images/heros/hero-image_3-medium.jpg" />
+              <img src="images/heros/hero-image_3-large.jpg" alt="Signature Dishes" loading="lazy" decoding="async" class=" ls-is-cached lazyloaded" />
+            </picture>
+            <div class="content">Signature Dishes</div>
             </div>
           </div>
         </div>

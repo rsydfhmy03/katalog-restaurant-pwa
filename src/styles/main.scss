@@ -483,7 +483,7 @@ main {
   text-decoration: none;
 }
 .list_item_title {
-  // @extend .touch-target;
+  @extend .touch-target;
   font-weight: 500;
   font-size: 16px;
   padding-bottom: 0%;
@@ -493,9 +493,11 @@ main {
   // margin-bottom: 200px;
   transition: 0.3s opacity;
   &:hover {
+
     opacity: 0.5;
   }
   a {
+    @extend .touch-target;
     text-decoration: none;
     color: $color_6;
   }

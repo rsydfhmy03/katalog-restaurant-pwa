@@ -92,26 +92,13 @@ module.exports = {
         {
           from: path.resolve(__dirname, 'src/public/'),
           to: path.resolve(__dirname, 'dist/'),
+          // globOptions: {
+          //   ignore: ['**/images/**'],
+          // },
         },
       ],
     }),
-    // new WorkboxWebpackPlugin.GenerateSW({
-    //   swDest: './sw.bundle.js',
-    //   runtimeCaching: [
-    //     {
-    //       urlPattern: ({ url }) => url.href.includes('restaurant-api.dicoding.dev'),
-    //       handler: 'StaleWhileRevalidate',
-    //       options: {
-    //         cacheName: 'resto-cache',
-    //         expiration: {
-    //           maxEntries: 50,
-    //           maxAgeSeconds: 30 * 24 * 60 * 60,
-    //         },
-    //       },
-    //     },
-    //   ],
-    //   ignoreURLParametersMatching: [/^utm_/, /^fbclid$/],
-    // }),
+
     new WorkboxWebpackPlugin.GenerateSW({
       swDest: './sw.bundle.js',
       runtimeCaching: [
@@ -141,17 +128,5 @@ module.exports = {
         }),
       ],
     }),
-    // new ImageMinimizerPlugin({
-    //   minimizer: {
-    //     implementation: ImageMinimizerPlugin.imageminGenerate,
-    //     options: {
-    //       plugins: [
-    //         ['mozjpeg', { quality: 50 }],
-    //         ['pngquant', { quality: [0.5, 0.6] }],
-    //         ['imagemin-webp', { quality: 50 }],
-    //       ],
-    //     },
-    //   },
-    // }),
   ],
 };
